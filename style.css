@@ -36,18 +36,17 @@ button {
 }
 .side-bar {
     position: absolute;
-    height: calc(100% - 50px);
+    height: calc(100% - 60px);
     width: 100%;
     margin-top: 60px;
     /* background-color: #999; */
     background-color: #e1d5b5;
     display: none;
 }
-.side-bar p {
+.side-bar .first-line, .second-line {
     font-size: 20px;
 }
-
-.heading {
+.side-bar .heading {
     /* display: inline-block; */
     /* margin: auto; */
     font-size: 30px;
