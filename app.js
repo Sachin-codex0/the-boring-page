@@ -32,6 +32,7 @@ catFactBtn.addEventListener("click", function () {
     sideBar.style.display = "block";
     heading.innerText = "Random Cat Facts";
     randomCatFact();
+    getMore.innerText = "more facts";
     secLine.innerText = "";
     cat_fact = true;
     earth_fact = false;
@@ -43,6 +44,7 @@ earthBtn.addEventListener("click", function () {
     sideBar.style.display = "block";
     heading.innerText = "Random Earth Facts";
     earthFacts();
+    getMore.innerText = "more facts";
     secLine.innerText = "";
     earth_fact = true;
     cat_fact = false;
@@ -54,6 +56,7 @@ uselessFactBtn.addEventListener("click", function () {
     sideBar.style.display = "block";
     heading.innerText = "Random Facts";
     uselessFact();
+    getMore.innerText = "more facts";
     secLine.innerText = "";
     useless_fact = true;
     cat_fact = false;
