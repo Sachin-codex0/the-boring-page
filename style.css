@@ -63,7 +63,7 @@ button {
     left: 48.2vw;
     top: 100%;
 }
-@media (max-width:350px) {
+@media (max-width:720px) {
     button {
         height: 12vw;
         width: 70vw;
