@@ -33,6 +33,7 @@ button {
     font-weight: 500;
     font-size: 17px;
     margin-top: 70px;
+    cursor: pointer;
 }
 .side-bar {
     position: absolute;
@@ -79,8 +80,8 @@ button {
         left: 45vw;
     }
     .nav p {
-        font-size: 20px;
-        font-weight: 800;
+        font-size: 21px;
+        font-weight: 700;
         /* font-family: 'Times New Roman', Times, serif; */
     }
 }
