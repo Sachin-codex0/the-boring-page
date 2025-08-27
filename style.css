@@ -25,7 +25,7 @@ body {
 }
 button {
     height: 2.5vw;
-    width: 13vw;
+    width: fit-content;
     background-color: #4c5f4e;
     border: none;
     color: azure;
@@ -63,8 +63,7 @@ button {
     left: 48.2vw;
     top: 100%;
 }
-
-@media (max-width:600px) {
+@media (max-width:350px) {
     button {
         height: 12vw;
         width: 70vw;
@@ -83,5 +82,12 @@ button {
         font-size: 20px;
         font-weight: 800;
         /* font-family: 'Times New Roman', Times, serif; */
+    }
+}
+
+@media (min-width:350px) {
+    button {
+        height: 35px;
+        width: 200px;
     }
 }
