@@ -75,13 +75,10 @@ button {
     .more {
         width: 60vw;
     }
-    p {
-        font-size: 20px;
-    }
     .backBtn {
         left: 45vw;
     }
-    .nav {
+    .nav p {
         font-size: 20px;
         font-weight: 800;
         /* font-family: 'Times New Roman', Times, serif; */
