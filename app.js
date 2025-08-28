@@ -7,11 +7,18 @@ let quoteBtn = document.querySelector(".quote-btn");
 let heading = document.querySelector(".heading");
 let firstLine = document.querySelector(".first-line");
 let secLine = document.querySelector(".second-line");
-let getMore = document.querySelector(".more");
+let getMore = document.querySelector(".moreBtn");
 
 let cat_fact = false; let earth_fact = false; let useless_fact = false; let coding_jokes = false; let GOT_quotes = false;
+let isMove = false;
 
 getMore.addEventListener("click", function () {
+    isMove = !(isMove);
+    if (isMove) {
+        getMore.style.transform = "translateY(2px)";
+    } else {
+        getMore.style.transform = "translateY(0px)";
+    }
     if (cat_fact) {
         randomCatFact();
         secLine.innerText = "";
@@ -29,7 +36,10 @@ getMore.addEventListener("click", function () {
 })
 
 catFactBtn.addEventListener("click", function () {
-    sideBar.style.display = "block";
+    setTimeout(function () {
+        sideBar.style.display = "block";
+        catFactBtn.style.display = "none";
+    }, 100);
     heading.innerText = "Random Cat Facts";
     randomCatFact();
     getMore.innerText = "more facts";
@@ -41,7 +51,10 @@ catFactBtn.addEventListener("click", function () {
 });
 
 earthBtn.addEventListener("click", function () {
-    sideBar.style.display = "block";
+    setTimeout(function () {
+        sideBar.style.display = "block";
+        earthBtn.style.display = "none";
+    }, 100);
     heading.innerText = "Random Earth Facts";
     earthFacts();
     getMore.innerText = "more facts";
@@ -53,7 +66,10 @@ earthBtn.addEventListener("click", function () {
 });
 
 uselessFactBtn.addEventListener("click", function () {
-    sideBar.style.display = "block";
+    setTimeout(function () {
+        sideBar.style.display = "block";
+        uselessFactBtn.style.display = "none";
+    }, 100);
     heading.innerText = "Random Facts";
     uselessFact();
     getMore.innerText = "more facts";
@@ -65,7 +81,10 @@ uselessFactBtn.addEventListener("click", function () {
 });
 
 jokeBtn.addEventListener("click", function () {
-    sideBar.style.display = "block";
+    setTimeout(function () {
+        sideBar.style.display = "block";
+        jokeBtn.style.display = "none";
+    }, 100);
     heading.innerText = "Programming Jokes";
     programmingJokes();
     getMore.innerText = "more jokes";
@@ -77,7 +96,10 @@ jokeBtn.addEventListener("click", function () {
 });
 
 quoteBtn.addEventListener("click", function () {
-    sideBar.style.display = "block";
+    setTimeout(function () {
+        sideBar.style.display = "block";
+        quoteBtn.style.display = "none";
+    }, 100);
     heading.innerText = "Game of Thrones Quotes";
     GOTquotes();
     getMore.innerText = "more quotes";
@@ -91,6 +113,17 @@ quoteBtn.addEventListener("click", function () {
 let backBtn = document.querySelector(".backBtn");
 backBtn.addEventListener("click", function () {
     sideBar.style.display = "none";
+    if (cat_fact) {
+        catFactBtn.style.display = "block";
+    } else if (earth_fact) {
+        earthBtn.style.display = "block";
+    } else if (useless_fact) {
+        uselessFactBtn.style.display = "block";
+    } else if (coding_jokes) {
+        jokeBtn.style.display = "block";
+    } else if (GOT_quotes) {
+        quoteBtn.style.display = "block";
+    }
 });
 
 // Random Cat Facts
