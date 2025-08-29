@@ -10,7 +10,30 @@ let secLine = document.querySelector(".second-line");
 let getMore = document.querySelector(".moreBtn");
 
 let cat_fact = false; let earth_fact = false; let useless_fact = false; let coding_jokes = false; let GOT_quotes = false;
-let isMove = false;
+let isMove = false; let isOn = false;
+
+let oldBulb = document.querySelector(".glass");
+oldBulb.addEventListener("click",function() {
+    isOn = !(isOn);
+    if(isOn) {
+        document.querySelector(".interface").style.backgroundColor = "#222";
+        sideBar.style.backgroundColor = "#222";
+        document.querySelector(".filament").style.filter = "drop-shadow(0px 0px 0px #444)";
+        oldBulb.style.boxShadow = "0 0 0 red";
+        heading.style.color = "azure";
+        firstLine.style.color = "azure";
+        secLine.style.color = "azure";
+    } else {
+        document.querySelector(".interface").style.backgroundColor = "rgb(173,164,164)";
+        sideBar.style.backgroundColor = "#e1d5b5";
+        document.querySelector(".filament").style.filter = "drop-shadow(0px 2px 2px yellow)";
+        oldBulb.style.boxShadow = "0 0 20px yellow";
+        heading.style.color = "black";
+        firstLine.style.color = "black";
+        secLine.style.color = "black";
+    }
+    
+});
 
 getMore.addEventListener("click", function () {
     isMove = !(isMove);
