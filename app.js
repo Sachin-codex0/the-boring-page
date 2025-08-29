@@ -19,6 +19,7 @@ oldBulb.addEventListener("click",function() {
         document.querySelector(".interface").style.backgroundColor = "#222";
         sideBar.style.backgroundColor = "#222";
         document.querySelector(".filament").style.filter = "drop-shadow(0px 0px 0px #444)";
+        document.querySelector(".filament").style.borderColor = "transparent transparent #444 transparent";
         oldBulb.style.boxShadow = "0 0 0 red";
         heading.style.color = "azure";
         firstLine.style.color = "azure";
@@ -27,6 +28,7 @@ oldBulb.addEventListener("click",function() {
         document.querySelector(".interface").style.backgroundColor = "rgb(173,164,164)";
         sideBar.style.backgroundColor = "#e1d5b5";
         document.querySelector(".filament").style.filter = "drop-shadow(0px 2px 2px yellow)";
+        document.querySelector(".filament").style.borderColor = "transparent transparent yellow transparent";
         oldBulb.style.boxShadow = "0 0 20px yellow";
         heading.style.color = "black";
         firstLine.style.color = "black";
