@@ -29,11 +29,65 @@ body {
     color: rgb(231, 224, 214);
     margin-left: 20px;
 }
+.old-bulb {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 23px;
+    left: 92%;
+}
+.holder {
+    height: 17px;
+    width: 14px;
+    background-color: #444;
+    margin: -47px auto 0 auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.glass {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: -1px auto 0 auto;
+    /* border: 0.5px solid #e0f2f1; */
+    border: 0.5px solid #cbefec;
+    box-shadow: 0 0 20px yellow;
+    cursor: pointer;
+}
 
+.line-one {
+    height: 15px;
+    width: 1px;
+    background-color: #444;
+    margin-left: 9px;
+    margin-top: -1px;
+    transform: rotate(30deg);
+}
+
+.line-two {
+    height: 15px;
+    width: 1px;
+    background-color: #444;
+    margin: -15px 0px 0px 20px;
+    transform: rotate(-30deg);
+}
+
+.filament {
+    height: 60px;
+    width: 30px;
+    border: 1px solid #444;
+    border-color: transparent transparent #444 transparent;
+    border-radius: 50%;
+    margin-top: -60px;
+    margin-left: -0.9px;
+    filter: drop-shadow(0px 2px 2px yellow);
+}
 .interface {
     height: calc(100% - 60px);
     width: 100%;
     background-color: rgb(173, 164, 164);
+    transition: background-color 0.5s;
     /* position: relative; */
 }
 
@@ -76,6 +130,7 @@ body {
     height: calc(100% - 60px);
     width: 100%;
     background-color: #e1d5b5;
+    transition: background-color 0.5s;
     text-align: center;
     display: none;
 }
@@ -278,9 +333,16 @@ body {
         font-size: 20px;
         font-weight: 650;
     }
+    .old-bulb {
+        top: 3%;
+        left: 77%;
+    }
 }
 
 @media (min-width:400px) and (max-width:600px) {
+    .old-bulb {
+        left: 80%;
+    }
     .btn-container .btn1 {
         animation: translate1 1s linear 0s 1 normal;
     }
@@ -353,6 +415,9 @@ body {
 }
 
 @media (min-width:600px) and (max-width:800px) {
+    .old-bulb {
+        left: 86%;
+    }
     .btn-container .btn1 {
         margin-top: 50px;
     }
@@ -418,6 +483,9 @@ body {
 }
 
 @media (min-width:800px) and (max-width:1000px) {
+    .old-bulb {
+        left: 91%;
+    }
     .btn-container .btn1 {
         margin-top: 50px;
     }
