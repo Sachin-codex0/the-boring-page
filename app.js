@@ -1,154 +1,153 @@
-let catFactBtn = document.querySelector(".fact-btn");
-let sideBar = document.querySelector(".side-bar");
-let earthBtn = document.querySelector(".earth-facts");
-let uselessFactBtn = document.querySelector(".usels-facts");
-let jokeBtn = document.querySelector(".joke-btn");
-let quoteBtn = document.querySelector(".quote-btn");
+// HEADING COLOR EFFECT
+
+let one = document.querySelector(".one");
+let two = document.querySelector(".two");
+let three = document.querySelector(".three");
+let four = document.querySelector(".four");
+let five = document.querySelector(".five");
+let six = document.querySelector(".six");
+
+let red1 = Math.floor(Math.random() * 255);
+let green1 = Math.floor(Math.random() * 255);
+let blue1 = Math.floor(Math.random() * 255);
+
+let red2 = Math.floor(Math.random() * 255);
+let green2 = Math.floor(Math.random() * 255);
+let blue2 = Math.floor(Math.random() * 255);
+
+let red3 = Math.floor(Math.random() * 255);
+let green3 = Math.floor(Math.random() * 255);
+let blue3 = Math.floor(Math.random() * 255);
+
+let red4 = Math.floor(Math.random() * 255);
+let green4 = Math.floor(Math.random() * 255);
+let blue4 = Math.floor(Math.random() * 255);
+
+let red5 = Math.floor(Math.random() * 255);
+let green5 = Math.floor(Math.random() * 255);
+let blue5 = Math.floor(Math.random() * 255);
+
+let red6 = Math.floor(Math.random() * 255);
+let green6 = Math.floor(Math.random() * 255);
+let blue6 = Math.floor(Math.random() * 255);
+
+one.style.color = `rgb(${red1},${green1},${blue1})`;
+two.style.color = `rgb(${red2},${green2},${blue2})`;
+three.style.color = `rgb(${red3},${green3},${blue3})`;
+four.style.color = `rgb(${red4},${green4},${blue4})`;
+five.style.color = `rgb(${red5},${green5},${blue5})`;
+six.style.color = `rgb(${red6},${green6},${blue6})`;
+
+// MAIN
+
+let mainBox = document.querySelector(".btn-container");
+let output = document.querySelector(".result");
+let backBtn = document.querySelector(".backBtn");
+let moreBtn = document.querySelector(".moreBtn");
 let heading = document.querySelector(".heading");
 let firstLine = document.querySelector(".first-line");
 let secLine = document.querySelector(".second-line");
-let getMore = document.querySelector(".moreBtn");
 
-let cat_fact = false; let earth_fact = false; let useless_fact = false; let coding_jokes = false; let GOT_quotes = false;
-let isMove = false; let isOn = false;
+let catFactBtn = document.querySelector(".fact-btn");
+let earthBtn = document.querySelector(".earth-facts");
+let randomFactBtn = document.querySelector(".useless-facts");
+let jokeBtn = document.querySelector(".joke-btn");
+let quoteBtn = document.querySelector(".quote-btn");
 
-let oldBulb = document.querySelector(".glass");
-oldBulb.addEventListener("click",function() {
-    isOn = !(isOn);
-    if(isOn) {
-        document.querySelector(".interface").style.backgroundColor = "#222";
-        sideBar.style.backgroundColor = "#222";
-        document.querySelector(".filament").style.filter = "drop-shadow(0px 0px 0px #444)";
-        document.querySelector(".filament").style.borderColor = "transparent transparent #444 transparent";
-        oldBulb.style.boxShadow = "0 0 0 red";
-        heading.style.color = "azure";
-        firstLine.style.color = "azure";
-        secLine.style.color = "azure";
-    } else {
-        document.querySelector(".interface").style.backgroundColor = "rgb(173,164,164)";
-        sideBar.style.backgroundColor = "#e1d5b5";
-        document.querySelector(".filament").style.filter = "drop-shadow(0px 2px 2px yellow)";
-        document.querySelector(".filament").style.borderColor = "transparent transparent yellow transparent";
-        oldBulb.style.boxShadow = "0 0 20px yellow";
-        heading.style.color = "black";
-        firstLine.style.color = "black";
-        secLine.style.color = "black";
-    }
-    
-});
+let cat_fact = false; let earth_fact = false; let random_fact = false; let joke = false; let quote = false;
 
-getMore.addEventListener("click", function () {
-    isMove = !(isMove);
-    if (isMove) {
-        getMore.style.transform = "translateY(2px)";
-    } else {
-        getMore.style.transform = "translateY(0px)";
-    }
-    if (cat_fact) {
-        randomCatFact();
-        secLine.innerText = "";
-    } else if (earth_fact) {
-        earthFacts();
-        secLine.innerText = "";
-    } else if (useless_fact) {
-        uselessFact();
-        secLine.innerText = "";
-    } else if (coding_jokes) {
-        programmingJokes();
-    } else if (GOT_quotes) {
-        GOTquotes();
-    }
-})
-
-catFactBtn.addEventListener("click", function () {
-    setTimeout(function () {
-        sideBar.style.display = "block";
-        catFactBtn.style.display = "none";
-    }, 100);
-    heading.innerText = "Random Cat Facts";
-    randomCatFact();
-    getMore.innerText = "more facts";
-    secLine.innerText = "";
+catFactBtn.addEventListener("click", () => {
+    setTimeout(() => {
+        mainBox.style.display = "none";
+        output.style.display = "block";
+    }, 250);
     cat_fact = true;
     earth_fact = false;
-    useless_fact = false;
-    GOT_quotes = false;
+    random_fact = false;
+    joke = false;
+    quote = false;
+    heading.innerText = "Random Cat Facts";
+    moreBtn.innerText = "more facts";
+    randomCatFact();
 });
 
-earthBtn.addEventListener("click", function () {
-    setTimeout(function () {
-        sideBar.style.display = "block";
-        earthBtn.style.display = "none";
-    }, 100);
-    heading.innerText = "Random Earth Facts";
-    earthFacts();
-    getMore.innerText = "more facts";
-    secLine.innerText = "";
+earthBtn.addEventListener("click", () => {
+    setTimeout(() => {
+        mainBox.style.display = "none";
+        output.style.display = "block";
+    }, 250);
+    cat_fact = false;
     earth_fact = true;
-    cat_fact = false;
-    useless_fact = false;
-    GOT_quotes = false;
+    random_fact = false;
+    joke = false;
+    quote = false;
+    heading.innerText = "Random Earth Facts";
+    moreBtn.innerText = "more facts";
+    earthFacts();
 });
 
-uselessFactBtn.addEventListener("click", function () {
-    setTimeout(function () {
-        sideBar.style.display = "block";
-        uselessFactBtn.style.display = "none";
-    }, 100);
+randomFactBtn.addEventListener("click", () => {
+    setTimeout(() => {
+        mainBox.style.display = "none";
+        output.style.display = "block";
+    }, 250);
+    cat_fact = false;
+    earth_fact = false;
+    random_fact = true;
+    joke = false;
+    quote = false;
     heading.innerText = "Random Facts";
+    moreBtn.innerText = "more facts";
     uselessFact();
-    getMore.innerText = "more facts";
-    secLine.innerText = "";
-    useless_fact = true;
-    cat_fact = false;
-    earth_fact = false;
-    GOT_quotes = false;
 });
 
-jokeBtn.addEventListener("click", function () {
-    setTimeout(function () {
-        sideBar.style.display = "block";
-        jokeBtn.style.display = "none";
-    }, 100);
+jokeBtn.addEventListener("click", () => {
+    setTimeout(() => {
+        mainBox.style.display = "none";
+        output.style.display = "block";
+    }, 250);
+    cat_fact = false;
+    earth_fact = false;
+    random_fact = false;
+    joke = true;
+    quote = false;
     heading.innerText = "Programming Jokes";
+    moreBtn.innerText = "more jokes";
     programmingJokes();
-    getMore.innerText = "more jokes";
-    coding_jokes = true;
-    useless_fact = false;
-    cat_fact = false;
-    earth_fact = false;
-    GOT_quotes = false;
 });
 
-quoteBtn.addEventListener("click", function () {
-    setTimeout(function () {
-        sideBar.style.display = "block";
-        quoteBtn.style.display = "none";
-    }, 100);
-    heading.innerText = "Game of Thrones Quotes";
+quoteBtn.addEventListener("click", () => {
+    setTimeout(() => {
+        mainBox.style.display = "none";
+        output.style.display = "block";
+    }, 250);
+    cat_fact = false;
+    earth_fact = false;
+    random_fact = false;
+    joke = false;
+    quote = true;
+    heading.innerText = "Game Of Thrones Quotes";
+    moreBtn.innerText = "more quotes";
     GOTquotes();
-    getMore.innerText = "more quotes";
-    useless_fact = false;
-    cat_fact = false;
-    earth_fact = false;
-    coding_jokes = false;
-    GOT_quotes = true;
 });
 
-let backBtn = document.querySelector(".backBtn");
-backBtn.addEventListener("click", function () {
-    sideBar.style.display = "none";
+moreBtn.addEventListener("click", () => {
     if (cat_fact) {
-        catFactBtn.style.display = "block";
+        randomCatFact();
     } else if (earth_fact) {
-        earthBtn.style.display = "block";
-    } else if (useless_fact) {
-        uselessFactBtn.style.display = "block";
-    } else if (coding_jokes) {
-        jokeBtn.style.display = "block";
-    } else if (GOT_quotes) {
-        quoteBtn.style.display = "block";
+        earthFacts();
+    } else if (random_fact) {
+        uselessFact();
+    } else if (joke) {
+        programmingJokes();
+    } else if (quote) {
+        GOTquotes();
     }
+});
+
+backBtn.addEventListener("click", () => {
+    mainBox.style.display = "flex";
+    output.style.display = "none";
 });
 
 // Random Cat Facts
@@ -160,6 +159,7 @@ function randomCatFact() {
         })
         .then((data) => {
             firstLine.innerText = `"${data.fact}"`;
+            secLine.innerText = "";
         })
         .catch((e) => {
             firstLine.innerText = "You've reached max limit";
@@ -176,6 +176,7 @@ function earthFacts() {
         })
         .then((data) => {
             firstLine.innerText = `"${data.fact}"`;
+            secLine.innerText = "";
         })
         .catch((e) => {
             firstLine.innerText = "You've reached max limit";
@@ -192,6 +193,7 @@ function uselessFact() {
         })
         .then((data) => {
             firstLine.innerText = `"${data.text}"`;
+            secLine.innerText = "";
         })
         .catch((e) => {
             firstLine.innerText = "You've reached max limit";
