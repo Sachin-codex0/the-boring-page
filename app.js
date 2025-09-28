@@ -45,16 +45,53 @@ let output = document.querySelector(".result");
 let backBtn = document.querySelector(".backBtn");
 let moreBtn = document.querySelector(".moreBtn");
 let heading = document.querySelector(".heading");
-let firstLine = document.querySelector(".first-line");
-let secLine = document.querySelector(".second-line");
+
+let p1 = document.querySelector(".first-line");
+let p2 = document.querySelector(".second-line");
+let p3 = document.querySelector(".third-line");
+let p4 = document.querySelector(".fourth-line");
+let p5 = document.querySelector(".fifth-line");
+let p6 = document.querySelector(".sixth-line");
+let p7 = document.querySelector(".seventh-line");
+let p8 = document.querySelector(".eigth-line");
+
+let clearRestLines = () => {
+    p3.innerText = "";
+    p4.innerText = "";
+    p5.innerText = "";
+    p6.innerText = "";
+    p7.innerText = "";
+    p8.innerText = "";
+}
 
 let catFactBtn = document.querySelector(".fact-btn");
 let earthBtn = document.querySelector(".earth-facts");
 let randomFactBtn = document.querySelector(".useless-facts");
 let jokeBtn = document.querySelector(".joke-btn");
 let quoteBtn = document.querySelector(".quote-btn");
+let getActivityBtn = document.querySelector(".activity-btn");
 
-let cat_fact = false; let earth_fact = false; let random_fact = false; let joke = false; let quote = false;
+let cat_fact = false; let earth_fact = false; let random_fact = false; let joke = false; let quote = false; let activity = false;
+
+let uniqueTimestamp;
+getActivityBtn.addEventListener("click", () => {
+    uniqueTimestamp = Math.floor(Math.random() * 55);
+    setTimeout(() => {
+        mainBox.style.display = "none";
+        output.style.display = "block";
+    }, 250);
+    activity = true;
+    cat_fact = false;
+    earth_fact = false;
+    random_fact = false;
+    joke = false;
+    quote = false;
+    heading.innerText = "Random Activity";
+    moreBtn.innerText = "Next";
+    output.classList.add("activity-color");
+    // output.style.fontFamily = "Roberto";
+    getActivity();
+});
 
 catFactBtn.addEventListener("click", () => {
     setTimeout(() => {
@@ -62,12 +99,15 @@ catFactBtn.addEventListener("click", () => {
         output.style.display = "block";
     }, 250);
     cat_fact = true;
+    acitivity = false;
     earth_fact = false;
     random_fact = false;
     joke = false;
     quote = false;
     heading.innerText = "Random Cat Facts";
-    moreBtn.innerText = "more facts";
+    moreBtn.innerText = "More Facts";
+    output.classList.remove("activity-color");
+    clearRestLines();
     randomCatFact();
 });
 
@@ -77,12 +117,15 @@ earthBtn.addEventListener("click", () => {
         output.style.display = "block";
     }, 250);
     cat_fact = false;
+    activity = false;
     earth_fact = true;
     random_fact = false;
     joke = false;
     quote = false;
     heading.innerText = "Random Earth Facts";
-    moreBtn.innerText = "more facts";
+    moreBtn.innerText = "More Facts";
+    output.classList.remove("activity-color");
+    clearRestLines();
     earthFacts();
 });
 
@@ -92,12 +135,15 @@ randomFactBtn.addEventListener("click", () => {
         output.style.display = "block";
     }, 250);
     cat_fact = false;
+    activity = false;
     earth_fact = false;
     random_fact = true;
     joke = false;
     quote = false;
     heading.innerText = "Random Facts";
-    moreBtn.innerText = "more facts";
+    moreBtn.innerText = "More Facts";
+    output.classList.remove("activity-color");
+    clearRestLines();
     uselessFact();
 });
 
@@ -106,13 +152,16 @@ jokeBtn.addEventListener("click", () => {
         mainBox.style.display = "none";
         output.style.display = "block";
     }, 250);
+    activity = false;
     cat_fact = false;
     earth_fact = false;
     random_fact = false;
     joke = true;
     quote = false;
     heading.innerText = "Programming Jokes";
-    moreBtn.innerText = "more jokes";
+    moreBtn.innerText = "More Jokes";
+    output.classList.remove("activity-color");
+    clearRestLines();
     programmingJokes();
 });
 
@@ -121,13 +170,16 @@ quoteBtn.addEventListener("click", () => {
         mainBox.style.display = "none";
         output.style.display = "block";
     }, 250);
+    activity = false;
     cat_fact = false;
     earth_fact = false;
     random_fact = false;
     joke = false;
     quote = true;
     heading.innerText = "Game Of Thrones Quotes";
-    moreBtn.innerText = "more quotes";
+    moreBtn.innerText = "More Quotes";
+    output.classList.remove("activity-color");
+    clearRestLines();
     GOTquotes();
 });
 
@@ -142,6 +194,8 @@ moreBtn.addEventListener("click", () => {
         programmingJokes();
     } else if (quote) {
         GOTquotes();
+    } else if(activity) {
+        getActivity();
     }
 });
 
@@ -149,6 +203,45 @@ backBtn.addEventListener("click", () => {
     mainBox.style.display = "flex";
     output.style.display = "none";
 });
+
+// Random Activity
+const proxyUrl = "https://api.allorigins.win/raw?url=";
+let urlForData = "https://bored-api.appbrewery.com/random";
+
+const newApiUrl = `${urlForData}?t=${uniqueTimestamp}`;
+const finalUrl = proxyUrl + encodeURIComponent(newApiUrl);
+let getActivity = () => {
+    fetch(finalUrl, {
+        cache: 'no-store'
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            // console.log(data);
+            p1.style.color = `rgb(${red1},${green2},${blue3})`;
+            p2.style.color = `rgb(${red2},${green1},${blue3})`;
+            p3.style.color = `rgb(${red3},${green2},${blue1})`;
+            p4.style.color = `rgb(${red4},${green5},${blue6})`;
+            p5.style.color = `rgb(${red6},${green1},${blue6})`;
+            p6.style.color = `rgb(${red5},${green3},${blue4})`;
+            p7.style.color = `rgb(${red1},${green6},${blue1})`;
+            p8.style.color = `rgb(${red3},${green5},${blue6})`;
+            p1.innerText = `Activity:- ${data.activity}`;
+            p2.innerText = `Type:- ${data.type}`;
+            p3.innerText = `Participants:- ${data.participants}`;
+            p4.innerText = `Price:- ${data.price}`;
+            p5.innerText = `Accessibility:- ${data.accessibility}`;
+            p6.innerText = `Duration:- ${data.duration}`;
+            p7.innerText = `KidFriendly:- ${data.kidFriendly}`;
+            p8.innerText = `Link:- "${data.link}"`;
+        })
+        .catch((e) => {
+            p1.innerText = e;
+            p2.innerText = "";
+            clearRestLines();
+        })
+}
 
 // Random Cat Facts
 let urlForCat = "https://catfact.ninja/fact";
@@ -158,12 +251,12 @@ function randomCatFact() {
             return res.json();
         })
         .then((data) => {
-            firstLine.innerText = `"${data.fact}"`;
-            secLine.innerText = "";
+            p1.innerText = `"${data.fact}"`;
+            p2.innerText = "";
         })
         .catch((e) => {
-            firstLine.innerText = "You've reached max limit";
-            secLine.innerText = "";
+            p1.innerText = "You've reached max limit";
+            p2.innerText = "";
         })
 }
 
@@ -175,12 +268,12 @@ function earthFacts() {
             return res.json();
         })
         .then((data) => {
-            firstLine.innerText = `"${data.fact}"`;
-            secLine.innerText = "";
+            p1.innerText = `"${data.fact}"`;
+            p2.innerText = "";
         })
         .catch((e) => {
-            firstLine.innerText = "You've reached max limit";
-            secLine.innerText = "";
+            p1.innerText = "You've reached max limit";
+            p2.innerText = "";
         })
 }
 
@@ -192,12 +285,12 @@ function uselessFact() {
             return res.json();
         })
         .then((data) => {
-            firstLine.innerText = `"${data.text}"`;
-            secLine.innerText = "";
+            p1.innerText = `"${data.text}"`;
+            p2.innerText = "";
         })
         .catch((e) => {
-            firstLine.innerText = "You've reached max limit";
-            secLine.innerText = "";
+            p1.innerText = "You've reached max limit";
+            p2.innerText = "";
         })
 }
 
@@ -211,16 +304,16 @@ function programmingJokes() {
         .then((data) => {
             console.log(data);
             if (data.type == "twopart") {
-                firstLine.innerText = data.setup;
-                secLine.innerText = `:- ${data.delivery}`;
+                p1.innerText = data.setup;
+                p2.innerText = `:- ${data.delivery}`;
             } else if (data.type == "single") {
-                firstLine.innerText = data.joke;
-                secLine.innerText = "";
+                p1.innerText = data.joke;
+                p2.innerText = "";
             }
         })
         .catch((e) => {
-            firstLine.innerText = "You've reached max limit";
-            secLine.innerText = "";
+            p1.innerText = "You've reached max limit";
+            p2.innerText = "";
         })
 }
 
@@ -232,11 +325,11 @@ function GOTquotes() {
             return res.json();
         })
         .then((data) => {
-            firstLine.innerText = `"${data.sentence}"`;
-            secLine.innerText = `:- ${data.character.name}`;
+            p1.innerText = `"${data.sentence}"`;
+            p2.innerText = `:- ${data.character.name}`;
         })
         .catch((e) => {
-            firstLine.innerText = "You've reached max limit";
-            secLine.innerText = "";
+            p1.innerText = "You've reached max limit";
+            p2.innerText = "";
         })
 }
