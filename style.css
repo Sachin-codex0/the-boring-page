@@ -134,6 +134,11 @@ img {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.result .error {
+    background-color: transparent;
+    color: black;
+    border: 1px solid red;
+}
 
 @media (max-width: 412px) {
     .btn-container div {
