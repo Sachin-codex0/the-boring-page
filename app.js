@@ -219,6 +219,8 @@ let getActivity = () => {
         })
         .then((data) => {
             // console.log(data);
+            moreBtn.innerText = "Next";
+            moreBtn.classList.remove("error");
             p1.style.color = `rgb(${red1},${green2},${blue3})`;
             p2.style.color = `rgb(${red2},${green1},${blue3})`;
             p3.style.color = `rgb(${red3},${green2},${blue1})`;
@@ -237,6 +239,9 @@ let getActivity = () => {
             p8.innerText = `Link:- "${data.link}"`;
         })
         .catch((e) => {
+            p1.style.color = "red";
+            moreBtn.innerText = "Try Again";
+            moreBtn.classList.add("error");
             p1.innerText = e;
             p2.innerText = "";
             clearRestLines();
@@ -251,10 +256,16 @@ function randomCatFact() {
             return res.json();
         })
         .then((data) => {
+            p1.style.color = "black";
+            moreBtn.innerText = "More Facts";
+            moreBtn.classList.remove("error");
             p1.innerText = `"${data.fact}"`;
             p2.innerText = "";
         })
         .catch((e) => {
+            p1.style.color = "red";
+            moreBtn.innerText = "Try Again";
+            moreBtn.classList.add("error");
             p1.innerText = "You've reached max limit";
             p2.innerText = "";
         })
@@ -268,10 +279,16 @@ function earthFacts() {
             return res.json();
         })
         .then((data) => {
+            p1.style.color = "black";
+            moreBtn.innerText = "More Facts";
+            moreBtn.classList.remove("error");
             p1.innerText = `"${data.fact}"`;
             p2.innerText = "";
         })
         .catch((e) => {
+            p1.style.color = "red";
+            moreBtn.innerText = "Try Again";
+            moreBtn.classList.add("error");
             p1.innerText = "You've reached max limit";
             p2.innerText = "";
         })
@@ -285,10 +302,16 @@ function uselessFact() {
             return res.json();
         })
         .then((data) => {
+            p1.style.color = "black";
+            moreBtn.innerText = "More Facts";
+            moreBtn.classList.remove("error");
             p1.innerText = `"${data.text}"`;
             p2.innerText = "";
         })
         .catch((e) => {
+            p1.style.color = "red";
+            moreBtn.innerText = "Try Again";
+            moreBtn.classList.add("error");
             p1.innerText = "You've reached max limit";
             p2.innerText = "";
         })
@@ -302,7 +325,10 @@ function programmingJokes() {
             return res.json();
         })
         .then((data) => {
-            console.log(data);
+            p1.style.color = "black";
+            moreBtn.innerText = "More Jokes";
+            moreBtn.classList.remove("error");
+            //console.log(data);
             if (data.type == "twopart") {
                 p1.innerText = data.setup;
                 p2.innerText = `:- ${data.delivery}`;
@@ -312,6 +338,9 @@ function programmingJokes() {
             }
         })
         .catch((e) => {
+            p1.style.color = "red";
+            moreBtn.innerText = "Try Again";
+            moreBtn.classList.add("error");
             p1.innerText = "You've reached max limit";
             p2.innerText = "";
         })
@@ -325,10 +354,16 @@ function GOTquotes() {
             return res.json();
         })
         .then((data) => {
+            p1.style.color = "black";
+            moreBtn.innerText = "More Quotes";
+            moreBtn.classList.remove("error");
             p1.innerText = `"${data.sentence}"`;
             p2.innerText = `:- ${data.character.name}`;
         })
         .catch((e) => {
+            p1.style.color = "red";
+            moreBtn.innerText = "Try Again";
+            moreBtn.classList.add("error");
             p1.innerText = "You've reached max limit";
             p2.innerText = "";
         })
